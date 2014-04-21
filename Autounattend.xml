@@ -60,7 +60,7 @@
                                 Hyper-V Server 2012 R2 SERVERHYPERCORE
                                 Windows Server 2012 R2 SERVERSTANDARD
                             -->
-                            <Value>Windows Server 2012 R2 SERVERSTANDARD</Value>
+                            <Value>Windows 7 ENTERPRISE</Value>
                         </MetaData>
                     </InstallFrom>
                 </OSImage>
@@ -107,13 +107,14 @@
                 <HideLocalAccountScreen>true</HideLocalAccountScreen>
                 -->
             </OOBE>
-            <!-- Use FirstLogonCommands instead of LogonCommands if you don't need to install Windows Updates -->
+            <!-- Use FirstLogonCommands instead of LogonCommands if you don't need to install Windows Updates 
             <LogonCommands>
                 <AsynchronousCommand wcm:action="add">
                     <CommandLine>%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell -NoLogo -NonInteractive -ExecutionPolicy RemoteSigned -File C:\Windows\Temp\Logon.ps1</CommandLine>
                     <Order>1</Order>
                 </AsynchronousCommand>
             </LogonCommands>
+            -->
             <FirstLogonCommands>
                 <SynchronousCommand wcm:action="add">
                     <CommandLine>%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell -NoLogo -NonInteractive -ExecutionPolicy RemoteSigned -File C:\Windows\Temp\FirstLogon.ps1</CommandLine>
@@ -130,7 +131,6 @@
                     <PlainText>true</PlainText>
                 </AdministratorPassword>
                 <!-- The following is needed on a client OS -->
-                <!--
                 <LocalAccounts>
                     <LocalAccount wcm:action="add">
                         <Description>Admin user</Description>
@@ -139,7 +139,6 @@
                         <Name>Admin</Name>
                     </LocalAccount>
                 </LocalAccounts>
-                -->
             </UserAccounts>
             <AutoLogon>
                 <Password>
