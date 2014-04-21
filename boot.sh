@@ -15,7 +15,7 @@ fi
 
 qemu-img create -f qcow2 -o preallocation=metadata $IMAGE 16G
 
-sudo $KVM -m 2048 -smp 2 -net nic -net user -cdrom $ISO -drive file=$VIRTIO_ISO,index=3,media=cdrom -fda $FLOPPY $IMAGE -boot d -vga std -k en-us -vnc :1
+sudo $KVM -m 2048 -smp 2 -net nic -net user -cdrom $ISO -drive file=$VIRTIO_ISO,index=3,media=cdrom -fda $FLOPPY $IMAGE -boot d -vga std -k en-us -vnc 127.0.0.1:1
 
 #
 # This does not work, the install won't work if the disk is virtio
